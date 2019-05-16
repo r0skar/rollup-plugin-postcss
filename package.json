@@ -11,7 +11,8 @@
     "test:cov": "npm run lint && jest --coverage",
     "build": "bili",
     "lint": "xo",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "install": "npm run build"
   },
   "repository": {
     "type": "git",
