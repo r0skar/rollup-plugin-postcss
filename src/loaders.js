@@ -23,6 +23,9 @@ export default class Loaders {
       }
       throw new TypeError('The rule in `use` option must be string or Array!')
     })
+
+    this.config = options.config
+
     this.loaders = []
 
     const extensions = options.extensions || ['.css', '.sss', '.pcss']
@@ -93,7 +96,7 @@ export default class Loaders {
             return v
           }
         }),
-      { code, map }
+      { code, config: this.config, map }
     )
   }
 

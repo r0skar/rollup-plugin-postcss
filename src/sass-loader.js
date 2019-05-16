@@ -21,7 +21,7 @@ const resolvePromise = pify(resolve)
 export default {
   name: 'sass',
   test: /\.s[ac]ss$/,
-  process({ code }) {
+  process({ code, config }) {
     return new Promise((resolve, reject) => {
       const sass = importCwd.silent('node-sass') || importCwd.silent('sass')
       if (!sass) {
@@ -32,7 +32,7 @@ export default {
         render({
           ...this.options,
           file: this.id,
-          data: code,
+          data: config && config.sassResources ? `${config.sassResources}\n${code}` : code,
           indentedSyntax: /\.sass$/.test(this.id),
           sourceMap: this.sourceMap,
           importer: [

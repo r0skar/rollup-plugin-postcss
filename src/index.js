@@ -48,6 +48,7 @@ export default (options = {}) => {
 
   const loaders = new Loaders({
     use,
+    config: options,
     loaders: options.loaders,
     extensions: options.extensions
   })
